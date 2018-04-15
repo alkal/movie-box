@@ -4,7 +4,7 @@
 
 Movie Box is a web-based responsive application, developed with HTML, CSS, Javascript and Bootstrap with the usage of The Movie Database API (version 3). In this version of application - for the purposes of demo - a list of **most popular movies** is presented. Feel free to use your desktop, tablet or mobile phone to navigate through the lists and retrieve meaningful details for movies.
 
-[Live URL](https://www.alkal.gr/moviebox/)
+[Live URL](http://www.alkal.gr/moviebox/)
 
 [GitHub Repo](https://github.com/alkal/movie-box)
 
