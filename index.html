@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie Box App</title>
+    <link href="./css/circle.css" rel="stylesheet">
+    <link href="./css/app.css" rel="stylesheet">
+    <link href="./css/responsive.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="./images/movieApp-logo.png" class="img-responsive" alt="Responsive image">
+          <span id="appTitle">Movie Box</span>
+        </a><!--// END navbar-brand -->
+      </div><!--// END navbar-header -->
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right">
+          <input type="text" class="form-control" placeholder="Search...">
+        </form>
+      </div><!--// END navbar-collapse -->
+    </div><!--// END container-fluid -->
+  </nav><!--// END nav -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 sidebar">
+        <div id="pagination-list" class="row">
+          <div class="col-sm-6 col-md-8">
+              <dl>
+                  <dt>List of Popular Movies</dt>
+                  <dd></dd>
+                </dl>
+          </div><!--// END col-sm-6 -->
+          <div class="col-sm-6 col-md-4">
+              <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default btn-sm" data-nav="prev" disabled="disabled"><i class="fa fa-angle-left"></i></button>
+                <button type="button" class="btn btn-default btn-sm" data-nav="next"><i class="fa fa-angle-right"></i></button>
+              </div>
+          </div><!--// END col-sm-6 -->
+        </div><!--// END pagiration row -->
+        <ul id="popularMoviesList" class="nav nav-sidebar"></ul>
+      </div><!--// END col-sm-9 #Sidebar -->
+      <div class="col-sm-9 col-sm-offset-3 main hidden-xs"> 
+      </div><!--// END col-sm-9 #Main_Content / HIDDEN FOR Mobile Phones-->
+      <div class="main visible-xs-12 hidden-sm hidden-md hidden-lg">
+        <div class="page-header">
+          <h4>List of Popular Movies <small></small></h4>
+          <div class="btn-group pull-right">
+            <button type="button" class="btn btn-default btn-xs" data-nav="prev" disabled="disabled"><i class="fa fa-angle-left"></i></button>
+            <button type="button" class="btn btn-default btn-xs" data-nav="next"><i class="fa fa-angle-right"></i></button>
+          </div>
+        </div>
+        <div class="row"></div>
+      </div><!--// END visible-xs-12 #Main_Content / Visible ONLY FOR Mobile Phones-->
+    </div><!--// END row -->
+    <!-- Modal ONLY FOR Mobile Phones-->
+    <div class="modal fade" id="mobileModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title"></h3>
+          </div>
+          <div class="modal-body"></div>
+        </div>
+      </div><!--// END modal-dialog -->
+    </div><!--// END modal -->
+  </div><!--// END container-fluid -->
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

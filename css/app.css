@@ -1,0 +1,79 @@
+/**************************************************
+    Project: Movie Box App - Stylesheets File
+    Version: 1.0	
+***************************************************/
+
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/font-awesome/css/font-awesome.min.css";
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* Global
+***************/
+
+body {padding-top: 50px;}
+.sub-header {padding-bottom: 10px;border-bottom: 1px solid #eee;}
+h1 small{font-size:72%;color:#adacac;}
+.jumbotron{text-align: center;background-color: transparent;}
+.c100.orange .bar, .c100.orange .fill {border-color: #f3a161 !important;}
+.c100 > span {color:#aaa;}
+.lead{margin:0;}
+.modal-header {padding: 15px 15px 8px;}
+.modal-body {padding:0 15px 15px;}
+.modal-body h3{margin-top:0;}
+.alert>p{margin:0;}
+
+/* Top Naviagation
+*********************/
+
+.navbar-fixed-top {border: 0;}
+
+.navbar-brand{display:table;}
+.navbar-brand img,.navbar-brand span{display:table-cell;vertical-align: middle;}
+.navbar-brand img+span{padding-left: 20px;}
+#appTitle{font-size:1.4em;color:#fff;}
+a.navbar-brand:hover #appTitle{color:#f3aa70;}
+
+.navbar-form{margin-top: 20px;}
+
+/* Sidebar
+*********************/
+  
+/* Hide for mobile, show later */
+.sidebar {display: none;}
+  
+/* Sidebar navigation */
+.nav-sidebar {height:100%;overflow-x: hidden;overflow-y: auto;}
+.nav-sidebar > li > a {padding-right: 20px;padding-left: 20px;}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {color: #fff;background-color: #428bca;}
+.nav>li>a:focus{background-color: #fddab5;box-shadow: 0px 1px 7px -2px #e09e4e;}
+
+#pagination-list{background-color: #CCC;padding: 14px 10px;box-shadow: 0px 1px 4px #ddd;margin-bottom: 10px;}
+#pagination-list .btn-default:hover, 
+#pagination-list .btn-default:focus{color: #333;background-color: #ffc393;border-color:#bbb;}
+#pagination-list dl{margin-bottom: 0;font-size:16px;}
+#pagination-list dd{font-style: italic;}
+
+#popularMoviesList a{font-family: 'Lato', sans-serif;font-size:16px;font-weight:800;color:#444;display:table;width: 100%;}
+
+
+/* Main Content
+*********************/
+
+.main {padding: 40px 20px 20px;}
+.main .page-header {margin-top: 0;}
+.main h3{margin-top:0;}
+.c100~.pull-left{margin-top: 20px;line-height: 22px;font-weight: 600;padding-left: 6px;font-size:18px;}
+.movieDataItem .list-inline{display:flex;flex-direction: row;justify-content: flex-start;flex-wrap:wrap;}
+.movieDataItem .list-inline li{align-self: center;margin-right:14px;}
+.movieDataItem .list-inline .fa{font-size:22px;}
+.movieDataItem .list-inline h5{float: left;font-size:16px;margin:4px 0;}
+.movieDataItem .list-inline h5>small{font-size:16px;color: #888;}
+.movieDataItem .col-lg-3{margin-bottom:30px;}
+.movieDataItem .col-lg-9 .row+.row{margin-top:20px;}
+.label.label-default{border: 1px solid #d87d06;background-color: transparent;color: #d87d06;font-weight: 400;font-size: 18px;margin-top: 6px;display: inline-block;margin:0 10px 10px 0;}
+.main.visible-xs-12 a{color:#444;}
+.main.visible-xs-12 .page-header h4{display:inline;}
+.main.visible-xs-12 .thumbnail{border:0 none;background-color: #f5f5f5;}
+.main.visible-xs-12 .thumbnail>.h5{text-align: center;display:block;}
