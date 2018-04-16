@@ -44,7 +44,7 @@ $(function(){
     }
 
     function getPopularMovies(currentPage){
-        const popularMoviesURL = apiBaseURL + 'movie/popular?api_key=' + apiKey + '&page='+currentPage;
+        const popularMoviesURL =`${apiBaseURL}movie/popular?api_key=${apiKey}&page=${currentPage} `;
         $.getJSON( popularMoviesURL, function( json ) {
             //console.log( json );
 
@@ -54,8 +54,8 @@ $(function(){
             if(currentPage===json.total_pages){$('button[data-nav="next"]').prop("disabled", true);}
 
             //Sidebar Title
-            $('#pagination-list dd').empty().append(json.page + '&nbsp;of&nbsp;' + json.total_pages);
-            $('.visible-xs-12 h4>small').empty().append('('+json.page + '&nbsp;of&nbsp;' + json.total_pages+')');
+            $('#pagination-list dd').empty().append(`${json.page} of ${json.total_pages}`);
+            $('.visible-xs-12 h4>small').empty().append(`(${json.page} of ${json.total_pages})`);
             
             //Empty #Main_Content area for all devices
             $('#popularMoviesList').empty();
@@ -72,9 +72,9 @@ $(function(){
 
                 popularMovieEntity+=`
                     <li>
-                    <a href="#" class="movieListItem" data-target="` +movieID+ `">
-                        <span>`+ movieTitle +`</span>
-                    </a>
+                        <a href="#" class="movieListItem" data-target="` +movieID+ `">
+                            <span>${movieTitle}</span>
+                        </a>
                     </li>`;
                 
                 //Display single row to HTML page, EXCLUDED mobile devices 
@@ -85,9 +85,9 @@ $(function(){
 
                 popularMovieEntityMobile+=`
                     <div class="col-xs-6">
-                        <a class="thumbnail" data-item="`+movieID+`" data-toggle="modal" data-target="#mobileModal">
-                            <img class="img-responsice "src="`+moviePoster+`">
-                            <span class="h5">`+movieTitle+`</span>
+                        <a class="thumbnail" data-item="${movieID}" data-toggle="modal" data-target="#mobileModal">
+                            <img class="img-responsice "src="${moviePoster}">
+                            <span class="h5">${movieTitle}</span>
                         </a>
                     </div>`;
                 
@@ -103,10 +103,10 @@ $(function(){
     } // END of getPopularMovies
 
     function getMoviesByID(movie_id){
-        const getMoviesByIdURL = apiBaseURL + 'movie/' + movie_id + '?api_key=' + apiKey;
+        const getMoviesByIdURL =`${apiBaseURL}movie/${movie_id}?api_key=${apiKey}`;
         
         $.getJSON(getMoviesByIdURL, function(movieData){
-            console.log(movieData)
+            //console.log(movieData)
 
             // Request Details assign to variables
             var poster = imageBaseUrl+'w300'+movieData.poster_path;
@@ -117,35 +117,35 @@ $(function(){
 
             var genreItems='';
             for(let i = 0; i<movieData.genres.length; i++){
-                genreItems+=`<span class="label label-default">`+movieData.genres[i].name+`</span>`;
+                genreItems+=`<span class="label label-default">${movieData.genres[i].name}</span>`;
             }
 
             //Display Movie Details, EXCLUDED FOR Mobile Phones
             var movieHTML = `
-                <h1 class="page-header">`+movieData.title+`&nbsp;<small>(`+releaseYear+`)</small></h1>
+                <h1 class="page-header">${movieData.title} <small>(${releaseYear})</small></h1>
                 <div class="row movieDataItem">
                     <div class="col-sm-12 col-md-4 col-lg-3">
-                        <img class="img-responsive" src="`+poster+`" alt="`+movieData.title+`">
+                        <img class="img-responsive" src="${poster}" alt="${movieData.title}">
                     </div>
                     <div class="col-sm-12 col-md-8 col-lg-9">
                         <div class="row">
                             <div class="col-sm-12">
                                 <ul class="list-inline">
                                     <li>
-                                        <div class="c100 p`+userScore+` small orange">
-                                            <span>`+userScore+`%</span>
+                                        <div class="c100 p${userScore} small orange">
+                                            <span>${userScore}%</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
                                                 <div class="fill"></div>
                                             </div>
                                         </div>
-                                        <div class="pull-left h5"> User Score <br/><small>(Voted by `+userVoteCount+` users)</small></div>
+                                        <div class="pull-left h5"> User Score <br/><small>(Voted by ${userVoteCount} users)</small></div>
                                     </li>
                                     <li>
-                                        <i class="fa fa-clock-o pull-left"></i><h5>Duration: <small>`+movieData.runtime+`min</small></h5>
+                                        <i class="fa fa-clock-o pull-left"></i><h5>Duration: <small> ${movieData.runtime} min</small></h5>
                                     </li>
                                     <li>
-                                        <i class="fa fa-calendar pull-left"></i><h5>Release Date: <small>`+releaseDate+`</small></h5>
+                                        <i class="fa fa-calendar pull-left"></i><h5>Release Date: <small>${releaseDate}</small></h5>
                                     </li>
                                 </ul>
                             </div>
@@ -153,13 +153,13 @@ $(function(){
                         <div class="row">
                             <div class="col-sm-12">
                                 <h3>Overview</h3>
-                                <p class="lead">`+movieData.overview+`</p>
+                                <p class="lead">${movieData.overview}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <h4>Genres</h4>
-                                `+genreItems+`
+                                ${genreItems}
                             </div>
                         </div>
                     </div>
@@ -176,29 +176,29 @@ $(function(){
                     <div class="col-sm-12">
                         <ul class="list-inline">
                             <li>
-                                <h4><small><i class="fa fa-clock-o"></i>&nbsp;Duration:&nbsp;`+movieData.runtime+`min</small></h4>
+                                <h4><small><i class="fa fa-clock-o"></i>&nbsp;Duration:${movieData.runtime}min</small></h4>
                             </li>
                             <li>
-                                <h4><small><i class="fa fa-calendar"></i>&nbsp;Release Date:&nbsp;`+releaseDate+`</small></h4>
+                                <h4><small><i class="fa fa-calendar"></i>&nbsp;Release Date:${releaseDate}</small></h4>
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-12">
                         <h3>Overview</h3>
-                        <p class="lead">`+movieData.overview+`</p>
+                        <p class="lead">${movieData.overview}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
                         <h4>Genres</h4>
-                        `+genreItems+`
+                        ${genreItems}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="h4 pull-left"> User Score <br/><small>(Voted by `+userVoteCount+` users)</small></div>
-                        <div class="c100 p`+userScore+` small orange">
-                                <span>`+userScore+`%</span>
+                        <div class="h4 pull-left"> User Score <br/><small>(Voted by ${userVoteCount} users)</small></div>
+                        <div class="c100 p${userScore} small orange">
+                                <span>${userScore}%</span>
                                 <div class="slice">
                                     <div class="bar"></div>
                                     <div class="fill"></div>
@@ -208,7 +208,7 @@ $(function(){
                     </div>
                 </div>
             `;
-            $('.modal-title').empty().append(movieData.title+`&nbsp;<small>(`+releaseYear+`)</small>&nbsp;`);
+        $('.modal-title').empty().append(`${movieData.title} <small>(${releaseYear})</small>&nbsp;`);
             $('.modal-body').empty().append(movieHtmlMobile);
 
         })
