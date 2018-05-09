@@ -22,7 +22,7 @@ Movie Box is a web-based responsive application, developed with HTML, CSS, Javas
 2. Install only the necessary dependencies:
 
 ```bash
-npm i --production
+npm i
 ```
 
 3. Run `gulp watch` for a dev server. Automatically navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
