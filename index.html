@@ -38,7 +38,7 @@
           <div class="col-sm-6 col-md-8">
               <dl>
                   <dt>List of Popular Movies</dt>
-                  <dd></dd>
+                  <dd><span data-currentPage></span> of <span data-totalPages></span></dd>
                 </dl>
           </div><!--// END col-sm-6 -->
           <div class="col-sm-6 col-md-4">
@@ -50,11 +50,22 @@
         </div><!--// END pagiration row -->
         <ul id="popularMoviesList" class="nav nav-sidebar"></ul>
       </div><!--// END col-sm-9 #Sidebar -->
-      <div class="col-sm-9 col-sm-offset-3 main hidden-xs"> 
+      <div class="col-sm-9 col-sm-offset-3 main hidden-xs">
+          <div class="jumbotron">
+            <h1>Movie Box</h1>
+            <p>Movie Box is a web-based responsive application, developed with HTML, CSS, Javascript and Bootstrap with the usage of <em>The Movie Database API (version 3)</em>. In this version of application - for the purposes of demo - a list of <strong>most popular movies</strong> are presented. Feel free to use your desktop, tablet or mobile phone to navigate through the lists and retrieve meaningful details for movies.</p>
+            <div class="alert alert-danger hidden" role="alert">
+                <p class="h5"><i class="fa fa-warning fa-lg"></i> Oops! The connection to the server failed. Try again or contact with support team!</p>
+            </div>
+            <div class="alert alert-info hidden" role="alert">
+                <p class="h5"><i class="fa fa-search fa-lg"></i> Continue your navigation through the list of popular movies!</p>
+            </div>
+          </div>
+          <div id="mainContent"></div>
       </div><!--// END col-sm-9 #Main_Content / HIDDEN FOR Mobile Phones-->
       <div class="main visible-xs-12 hidden-sm hidden-md hidden-lg">
         <div class="page-header">
-          <h4>List of Popular Movies <small></small></h4>
+          <h4>List of Popular Movies <small><span data-currentPage></span> of <span data-totalPages></span></small></h4>
           <div class="btn-group pull-right">
             <button type="button" class="btn btn-default btn-xs" data-nav="prev" disabled="disabled"><i class="fa fa-angle-left"></i></button>
             <button type="button" class="btn btn-default btn-xs" data-nav="next"><i class="fa fa-angle-right"></i></button>
@@ -78,6 +89,8 @@
   </div><!--// END container-fluid -->
   <script src="./node_modules/jquery/dist/jquery.min.js"></script>
   <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./js/settings.js"></script>
   <script src="./js/app.js"></script>
+  <script src="./js/fn.js"></script>
 </body>
 </html>
