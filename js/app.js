@@ -36,8 +36,7 @@ $(function(){
         clearMainContent(); //clear DOM
         
         $.getJSON(getMoviesByIdURL, function(movieData){
-            //console.log(movieData)
-
+            
             // Request Details assign to variables
             let movieTitle=movieData.title;
             let movieOverview=movieData.overview;
